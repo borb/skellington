@@ -31,7 +31,7 @@ set list
 set listchars=eol:¬,tab:‣\ ,trail:∙,extends:>,precedes:<
 " }}}
 
-" {{{ colours and appearance, enable syntax highlighting
+" {{{ editor appearance, verbosity
 set background=dark
 set hlsearch
 set ruler
@@ -91,11 +91,12 @@ Plugin 'joonty/vdebug'
 " php integration for vim
 "Plugin 'spf13/PIV'
 
-" molokai for vim
+" colour theme
 Plugin 'tomasr/molokai'
 
 " vim-airline, a swish statusline and tabline for vim
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " a filetree plugin
 Plugin 'scrooloose/nerdtree'
@@ -115,6 +116,9 @@ Plugin 'xsbeats/vim-blade'
 " sudo support for vim
 Plugin 'sudo.vim'
 
+" load gitgutter
+Plugin 'airblade/vim-gitgutter'
+
 " end of plugin setup
 call vundle#end()
 filetype on
@@ -127,15 +131,16 @@ filetype on
 " no line numbering
 let g:tabman_number=0
 
-" molokai
+" colours
 if filereadable(expand("~/.vim/bundle/molokai/colors/molokai.vim"))
 	colorscheme molokai
+	highlight Normal ctermbg=none
 endif
 
 " airline settings
 let g:airline#extensions#tabline#enabled=1
-"let g:airline_powerline_fonts=1
-let g:airline_theme='badwolf'
+let g:airline_powerline_fonts=1
+let g:airline_theme='dark'
 
 " nerdtree settings
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
