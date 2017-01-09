@@ -19,9 +19,24 @@ SAVEHIST=1000
 
 # Enable color support in supporting tools
 _colourterm="no"
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+
+# Determine how to check for colours. Linux & macOS use ncurses to provide tput,
+# which differs from the BSD tput
+case "$_system" in
+	FreeBSD|NetBSD|OpenBSD)
+		_console_colours="$(tput Co)"
+		[ "x$_console_colours" = "x" ] && _console_colours="0"
+		;;
+	*)
+		_console_colours="$(tput colors)"
+		;;
+esac
+
+# Check how many colours tput said we can handle
+if [ $_console_colours -gt 2 ]; then
 	_colourterm="yes"
 fi
+unset _console_colours
 
 # Force colour?
 #_colourterm="yes"
@@ -66,19 +81,9 @@ compinit
 # style the completion with a menu highlight
 zstyle ':completion:*' menu select
 
-# load antigen
-if [ -r ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-antigen.git/antigen.zsh ]; then
-	source ~/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-antigen.git/antigen.zsh
-	_antigen_present=yes
-elif [ -r ~/bin/antigen.zsh ]; then
-	source ~/bin/antigen.zsh
-	_antigen_present=yes
-fi
-
-# if antigen was loaded, use it
-if [ -n "$_antigen_present" ]; then
-	# use the antigen bundle: it can self update
-	antigen bundle zsh-users/antigen
+# load antigen and bundles
+if [ -r ~/.antigen/antigen/antigen.zsh ]; then
+	source ~/.antigen/antigen/antigen.zsh
 
 	# set our theme and syntax highlighting
 	[ "x$_colourterm" = "xyes" ] && {
@@ -86,9 +91,20 @@ if [ -n "$_antigen_present" ]; then
 		antigen bundle zsh-users/zsh-syntax-highlighting
 	}
 
+	# more completion
+	antigen bundle zsh-users/zsh-completions src
+
 	# finish with antigen
 	antigen apply
-	unset _antigen_present
+fi
+
+# lastly; load our customisations (if present)
+if [ -r ~/.zshrc.local ]; then
+	source ~/.zshrc.local
+fi
+
+if [ -r ~/bin/shellfuncs.sh ]; then
+	source ~/bin/shellfuncs.sh
 fi
 
 # clean up

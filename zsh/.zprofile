@@ -31,11 +31,17 @@ if [ -d ~/bin ]; then
 	unset _homebin
 fi
 
-# if we're using homebrew, and /usr/local/sbin is in the path, move it to the front
-if [ -r /usr/local/bin/brew -a ${path[(i)/usr/local/sbin]} -le ${#path} ]; then
+# if /usr/local/{bin,sbin} is in the path, move it to the front
+if [ ${path[(i)/usr/local/sbin]} -le ${#path} ]; then
 	_idx=${path[(i)/usr/local/sbin]}
 	path[$_idx]=()
 	path=(/usr/local/sbin $path)
+	unset _idx
+fi
+if [ ${path[(i)/usr/local/bin]} -le ${#path} ]; then
+	_idx=${path[(i)/usr/local/bin]}
+	path[$_idx]=()
+	path=(/usr/local/bin $path)
 	unset _idx
 fi
 
