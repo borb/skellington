@@ -28,10 +28,10 @@ set scrolloff=5
 
 " highlight end of lines, tabs, trailing space white space
 set list
-set listchars=eol:¬,tab:‣\ ,trail:∙,extends:>,precedes:<,space:∙
+set listchars=eol:¬,tab:‣\ ,trail:∙,extends:>,precedes:<
 " }}}
 
-" {{{ colours and appearance, enable syntax highlighting
+" {{{ editor appearance, verbosity
 set background=light
 set hlsearch
 set ruler
@@ -91,11 +91,12 @@ Plugin 'joonty/vdebug'
 " php integration for vim
 "Plugin 'spf13/PIV'
 
-" a theme with a light variant
+" colour theme
 Plugin 'reedes/vim-colors-pencil'
 
 " vim-airline, a swish statusline and tabline for vim
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " a filetree plugin
 Plugin 'scrooloose/nerdtree'
@@ -130,7 +131,7 @@ filetype on
 " no line numbering
 let g:tabman_number=0
 
-" pencil
+" colours
 if filereadable(expand("~/.config/nvim/bundle/vim-colors-pencil/colors/pencil.vim"))
 	colorscheme pencil
 	" drop the #f1f1f1 background
@@ -139,7 +140,7 @@ endif
 
 " airline settings
 let g:airline#extensions#tabline#enabled=1
-"let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=1
 let g:airline_theme='pencil'
 
 " nerdtree settings
