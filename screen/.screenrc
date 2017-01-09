@@ -1,0 +1,22 @@
+# ~/.screenrc
+
+# don't show startup message, display nethack messages
+startup_message off
+nethack on
+
+## be a login shell
+#deflogin on
+
+# turn visual bell on
+vbell on
+vbell_msg "   wuff!  ----  wuff!  "
+
+# define a bigger scrollback, default is 100 lines
+defscrollback 8192
+
+# caption/status line poo
+caption splitonly "%?%F%{=b KC}%:%{= Kc}%?[%n %t] %h%=%{-}"
+hardstatus alwayslastline "%{= kc}%-w%{+b KC}%n %t%{-}%+w %-14=%{+b C}%Y%m%d %0c%{-}%{-}"
+
+# terminal type
+term "screen-256color"
