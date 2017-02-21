@@ -1,0 +1,70 @@
+"*":
+  "atom-autocomplete-php":
+    binComposer: "/Users/nine/bin/composer.phar"
+  "atom-material-ui":
+    colors:
+      abaseColor:
+        red: 126
+        green: 87
+        blue: 194
+        alpha: 1
+      accentColor:
+        red: 176
+        green: 228
+        blue: 87
+        alpha: 1
+      predefinedColor: "Purple"
+    tabs: {}
+    treeView:
+      compactList: true
+    ui: {}
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+  core:
+    allowPendingPaneItems: false
+    excludeVcsIgnoredPaths: false
+    themes: [
+      "atom-material-ui"
+      "atom-material-syntax-light"
+    ]
+  editor:
+    fontFamily: "SourceCodePro-Medium"
+    invisibles: {}
+    preferredLineLength: 120
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
+  "expand-region": {}
+  "find-and-replace": {}
+  "fuzzy-finder": {}
+  "git-plus": {}
+  linter:
+    showErrorPanel: false
+  "linter-php":
+    executablePath: "/usr/local/bin/php"
+  "linter-phpcs":
+    executablePath: "/Users/nine/bin/phpcs"
+    phpcsExecutablePath: "/Users/nine/bin/phpcs"
+  "merge-conflicts": {}
+  minimap:
+    displayPluginsControls: false
+  "php-debug":
+    PathMaps: [
+      "/remote/place;/local/place"
+    ]
+    PhpException:
+      CatchableFatalError: false
+      Deprecated: false
+      FatalError: false
+      Notice: false
+      ParseError: false
+      StrictStandards: false
+      UnknownError: false
+      Warning: false
+  pigments: {}
+  tabs: {}
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
+  "xml-formatter":
+    endLineCharacter: "LF (\\n)"
