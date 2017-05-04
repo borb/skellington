@@ -79,6 +79,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " other bundles to load
 
+" updated php syntax
+Plugin 'StanAngeloff/php.vim'
+
 " ctrl-p plugin: load a file with ctrl-p, completing paths and filenames
 Plugin 'kien/ctrlp.vim'
 
@@ -92,7 +95,7 @@ Plugin 'joonty/vdebug'
 "Plugin 'spf13/PIV'
 
 " colour theme
-Plugin 'tomasr/molokai'
+Plugin 'joshdick/onedark.vim'
 
 " vim-airline, a swish statusline and tabline for vim
 Plugin 'vim-airline/vim-airline'
@@ -132,9 +135,10 @@ filetype on
 let g:tabman_number=0
 
 " colours
-if filereadable(expand("~/.config/nvim/bundle/molokai/colors/molokai.vim"))
-	colorscheme molokai
+if filereadable(expand("~/.config/nvim/bundle/onedark.vim/colors/onedark.vim"))
+	colorscheme onedark
 	highlight Normal ctermbg=none
+	highlight LineNr ctermbg=234
 endif
 
 " airline settings
@@ -143,18 +147,12 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
 
 " nerdtree settings
-map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-map <leader>e :NERDTreeFind<CR>
-nmap <leader>nt :NERDTreeFind<CR>
-
-let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.localized', '\.DS_Store']
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=1
-let NERDTreeMouseMode=2
+map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
-let g:nerdtree_tabs_open_on_gui_startup=0
+
+" keys for next/prev buffers
+map <M-,> :tabprevious<CR>
+map <M-.> :tabnext<CR>
 
 " vdebug keys
 "let g:vdebug_keymap['get_context']='<leader>c'
