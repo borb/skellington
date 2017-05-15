@@ -1,0 +1,8 @@
+A File Icon
+Boxy Theme
+Dockerfile Syntax Highlighting
+Git
+GitGutter
+Package Control
+SideBarEnhancements
+SublimeLinter-php
