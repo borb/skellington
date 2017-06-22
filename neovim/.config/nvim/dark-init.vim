@@ -167,59 +167,14 @@ map <M-.> :tabnext<CR>
 "let g:syntastic_check_on_wq=0
 " }}}
 
-" {{{ file association settings and macro functions for file types
-autocmd BufRead,BufNewFile,BufAdd,BufCreate mutt-* call ModeMsgEdit()
-autocmd BufRead,BufNewFile,BufAdd,BufCreate *.{php,phtml,php,inc} call ModePHP()
-autocmd BufRead,BufNewFile,BufAdd,BufCreate *.{htm,html,xhtml,xml,wsdl,xsl,xslt,dtd} call ModeXML()
-autocmd BufRead,BufNewFile,BufAdd,BufCreate *.js call ModeJS()
+" {{{ syntax specific settings
+autocmd BufRead,BufNewFile,BufAdd,BufCreate mutt-* 
+	\setlocal foldmethod=syntax tabstop=4 expandtab shiftwidth=4 textwidth=76
 
-" {{{ ModeMsgEdit() - for editing email/news
-function ModeMsgEdit()
-	" folding
-	set foldmethod=syntax
+autocmd Filetype php setlocal tabstop=4 shiftwidth=4 nowrap expandtab
 
-	" tabbing
-	set tabstop=4
-	set expandtab
+autocmd Filetype xml setlocal tabstop=4 shiftwidth=4 nowrap
+autocmd Filetype xml vmap t :!tidy -xml -indent -wrap 0 -quiet<CR>
 
-	" indenting
-	set shiftwidth=4
-
-	" wrapping
-	set textwidth=76
-
-	"echon " - welcome to email editing mode."
-endfunction
-" }}}
-
-" {{{ ModePHP() - edit PHP
-function ModePHP()
-	set tabstop=4
-	set shiftwidth=4
-"	set syntax=php
-	set nowrap
-	set expandtab
-	echon " - welcome to PHP mode."
-endfunction
-" }}}
-
-" {{{ ModeXML() - edit XML and similar formats
-function ModeXML()
-	set tabstop=4
-	set shiftwidth=4
-	set nowrap
-	vmap t		:!tidy -xml -indent -wrap 0 -quiet<CR>
-	echon " - welcome to XML mode."
-endfunction
-" }}}
-
-" {{{ ModeJS() - edit Javascript
-function ModeJS()
-	set tabstop=4
-	set shiftwidth=4
-	set nowrap
-	echon " - welcome to Javascript mode."
-endfunction
-" }}}
-
+autocmd Filetype json,javascript setlocal tabstop=2 shiftwidth=2 expandtab nowrap
 " }}}
