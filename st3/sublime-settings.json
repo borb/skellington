@@ -1,29 +1,42 @@
 {
-	"always_show_minimap_viewport": true,
-	"bold_folder_labels": true,
+	// ui and colour theme
+	"color_scheme": "Packages/Boxy Theme/schemes/Boxy Yesterday.tmTheme",
+	"theme": "Boxy Yesterday.sublime-theme",
+
+	// packages to block
+	"ignored_packages": ["Vintage"],
+
+	// cursor style
 	"caret_extra_bottom": 1,
 	"caret_extra_top": 1,
 	"caret_extra_width": 1,
 	"caret_style": "blink",
-	"color_scheme": "Packages/Boxy Theme/schemes/Boxy Yesterday.tmTheme",
-	"fade_fold_buttons": false,
-	"font_face": "SF Mono",
-	"font_size": 14,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-	"indent_guide_options":
-	[
-		"draw_normal",
-		"draw_active"
-	],
+
+	// indentation guide displays
+	"indent_guide_options": ["draw_normal", "draw_active"],
+
+	// line padding
 	"line_padding_bottom": 2,
 	"line_padding_top": 2,
+
+	// when minimap is displayed, show viewport
+	"always_show_minimap_viewport": true,
+
+	// stop fading fold buttons
+	"fade_fold_buttons": false,
+
+	// scroll bars overlay ui
 	"overlay_scroll_bars": "enabled",
+
+	// display encoding and line ending style in status bar
 	"show_encoding": true,
 	"show_line_endings": true,
-	"theme": "Boxy Yesterday.sublime-theme",
+
+	// typeface and size
+	"font_face": "SF Mono",
+	"font_size": 14,
+
+	// boxy tab theme
 	"theme_accent_sky": true,
 	"theme_button_rounded": true,
 	"theme_find_panel_close_hidden": true,
@@ -38,5 +51,8 @@
 	"theme_sidebar_indent_top_level_disabled": true,
 	"theme_statusbar_size_md": true,
 	"theme_tab_rounded": true,
-	"theme_tab_selected_prelined": true
+	"theme_tab_selected_prelined": true,
+
+	// prevent tab scrolling (removes <>\/ icons)
+	"enable_tab_scrolling": false
 }
