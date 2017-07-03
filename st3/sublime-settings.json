@@ -54,5 +54,8 @@
 	"theme_tab_selected_prelined": true,
 
 	// prevent tab scrolling (removes <>\/ icons)
-	"enable_tab_scrolling": false
+	"enable_tab_scrolling": false,
+
+	// all files should have a newline at EOF
+	"ensure_newline_at_eof_on_save": true,
 }
