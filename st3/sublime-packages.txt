@@ -1,9 +1,8 @@
 A File Icon
 Babel
 Boxy Theme
+Diffy
 Dockerfile Syntax Highlighting
-Git
-GitGutter
 Package Control
 SideBarEnhancements
 SublimeLinter
@@ -11,3 +10,4 @@ SublimeLinter-contrib-standard
 SublimeLinter-php
 SublimeLinter-phpcs
 SublimeLinter-phpmd
+Super-Awesome Paste
