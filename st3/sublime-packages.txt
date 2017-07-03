@@ -1,8 +1,13 @@
 A File Icon
+Babel
 Boxy Theme
 Dockerfile Syntax Highlighting
 Git
 GitGutter
 Package Control
 SideBarEnhancements
+SublimeLinter
+SublimeLinter-contrib-standard
 SublimeLinter-php
+SublimeLinter-phpcs
+SublimeLinter-phpmd
