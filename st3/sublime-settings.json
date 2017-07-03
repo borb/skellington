@@ -58,4 +58,7 @@
 
 	// all files should have a newline at EOF
 	"ensure_newline_at_eof_on_save": true,
+
+	// clean up whitespace at end of line
+	"trim_trailing_white_space_on_save": true
 }
