@@ -1,5 +1,8 @@
 // These settings override both User and Default settings for the PHP syntax
 {
 	// insert spaces when tab is pressed
-    "translate_tabs_to_spaces": true
+    "translate_tabs_to_spaces": true,
+
+    // forcibly disable word wrapping
+    "word_wrap": "false"
 }
