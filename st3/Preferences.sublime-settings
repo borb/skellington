@@ -1,7 +1,7 @@
 {
 	// ui and colour theme
 	"theme": "Spacegray Light.sublime-theme",
-	"color_scheme": "Packages/User/SublimeLinter/base16-ocean.light (SL).tmTheme",
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.light.tmTheme",
 
 	// spacegray options
 	"spacegray_sidebar_font_small": true,
