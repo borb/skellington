@@ -1,13 +1,14 @@
 {
 	// ui and colour theme
-	"theme": "Spacegray Light.sublime-theme",
-	"color_scheme": "Packages/User/SublimeLinter/base16-ocean.light (SL).tmTheme",
+	"theme": "ayu-mirage.sublime-theme",
+	"color_scheme": "Packages/ayu/ayu-mirage.tmTheme",
 
-	// spacegray options
-	"spacegray_sidebar_font_small": true,
-	"spacegray_tabs_font_small": true,
-	"spacegray_tabs_large": true,
-	"spacegray_fileicons": true,
+	// ayu options
+	"ui_separator": false,				// separators between panels
+	"ui_font_size_small": true,			// smaller UI font size(sidebar, statusbar etc)
+	"ui_big_tabs": true,				// increased tab height
+	"ui_fix_tab_labels": true,			// to fix tab labels if they look not right
+	"ui_wide_scrollbars": true,			// wider scrollbars
 
 	// packages to block
 	"ignored_packages": ["Vintage"],
@@ -39,7 +40,7 @@
 	"show_line_endings": true,
 
 	// typeface and size
-	"font_face": "Fira Code Light",
+	"font_face": "Roboto Mono Light",
 	"font_size": 14,
 
 	// prevent tab scrolling (removes <>\/ icons)
