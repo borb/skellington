@@ -1,11 +1,10 @@
 A File Icon
-Agila Theme
+ayu
 Babel
 Diffy
 Dockerfile Syntax Highlighting
 Package Control
 SideBarEnhancements
-Skins
 SublimeLinter
 SublimeLinter-contrib-standard
 SublimeLinter-php
