@@ -3,6 +3,7 @@ ayu
 Babel
 Diffy
 Dockerfile Syntax Highlighting
+JavaScript Completions
 Package Control
 SideBarEnhancements
 SublimeLinter
