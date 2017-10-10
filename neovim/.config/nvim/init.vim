@@ -32,7 +32,7 @@ set listchars=eol:¬,tab:‣\ ,trail:∙,extends:>,precedes:<
 " }}}
 
 " {{{ editor appearance, verbosity
-set background=light
+set background=dark
 set hlsearch
 set ruler
 set showmatch
@@ -79,6 +79,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " other bundles to load
 
+" updated php syntax
+Plugin 'StanAngeloff/php.vim'
+
 " ctrl-p plugin: load a file with ctrl-p, completing paths and filenames
 Plugin 'kien/ctrlp.vim'
 
@@ -92,7 +95,7 @@ Plugin 'joonty/vdebug'
 "Plugin 'spf13/PIV'
 
 " colour theme
-Plugin 'reedes/vim-colors-pencil'
+Plugin 'joshdick/onedark.vim'
 
 " vim-airline, a swish statusline and tabline for vim
 Plugin 'vim-airline/vim-airline'
@@ -132,30 +135,24 @@ filetype on
 let g:tabman_number=0
 
 " colours
-if filereadable(expand("~/.config/nvim/bundle/vim-colors-pencil/colors/pencil.vim"))
-	colorscheme pencil
-	" drop the #f1f1f1 background
+if filereadable(expand("~/.config/nvim/bundle/onedark.vim/colors/onedark.vim"))
+	colorscheme onedark
 	highlight Normal ctermbg=none
+	highlight LineNr ctermbg=234
 endif
 
 " airline settings
 let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
-let g:airline_theme='pencil'
+let g:airline_theme='dark'
 
 " nerdtree settings
-map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-map <leader>e :NERDTreeFind<CR>
-nmap <leader>nt :NERDTreeFind<CR>
-
-let NERDTreeShowBookmarks=1
-let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.localized', '\.DS_Store']
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=1
-let NERDTreeMouseMode=2
+map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
-let g:nerdtree_tabs_open_on_gui_startup=0
+
+" keys for next/prev buffers
+map <M-,> :tabprevious<CR>
+map <M-.> :tabnext<CR>
 
 " vdebug keys
 "let g:vdebug_keymap['get_context']='<leader>c'
@@ -170,59 +167,16 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 "let g:syntastic_check_on_wq=0
 " }}}
 
-" {{{ file association settings and macro functions for file types
-autocmd BufRead,BufNewFile,BufAdd,BufCreate mutt-* call ModeMsgEdit()
-autocmd BufRead,BufNewFile,BufAdd,BufCreate *.{php,phtml,php,inc} call ModePHP()
-autocmd BufRead,BufNewFile,BufAdd,BufCreate *.{htm,html,xhtml,xml,wsdl,xsl,xslt,dtd} call ModeXML()
-autocmd BufRead,BufNewFile,BufAdd,BufCreate *.js call ModeJS()
+" {{{ syntax specific settings
+autocmd BufRead,BufNewFile,BufAdd,BufCreate mutt-* 
+	\setlocal foldmethod=syntax tabstop=4 expandtab shiftwidth=4 textwidth=76
 
-" {{{ ModeMsgEdit() - for editing email/news
-function ModeMsgEdit()
-	" folding
-	set foldmethod=syntax
+autocmd Filetype php setlocal tabstop=4 shiftwidth=4 nowrap expandtab
 
-	" tabbing
-	set tabstop=4
-	set expandtab
+autocmd Filetype xml setlocal tabstop=4 shiftwidth=4 nowrap
+autocmd Filetype xml vmap t :!tidy -xml -indent -wrap 0 -quiet<CR>
 
-	" indenting
-	set shiftwidth=4
+autocmd Filetype json,javascript setlocal tabstop=2 shiftwidth=2 expandtab nowrap
 
-	" wrapping
-	set textwidth=76
-
-	"echon " - welcome to email editing mode."
-endfunction
-" }}}
-
-" {{{ ModePHP() - edit PHP
-function ModePHP()
-	set tabstop=4
-	set shiftwidth=4
-"	set syntax=php
-	set nowrap
-	set expandtab
-	echon " - welcome to PHP mode."
-endfunction
-" }}}
-
-" {{{ ModeXML() - edit XML and similar formats
-function ModeXML()
-	set tabstop=4
-	set shiftwidth=4
-	set nowrap
-	vmap t		:!tidy -xml -indent -wrap 0 -quiet<CR>
-	echon " - welcome to XML mode."
-endfunction
-" }}}
-
-" {{{ ModeJS() - edit Javascript
-function ModeJS()
-	set tabstop=4
-	set shiftwidth=4
-	set nowrap
-	echon " - welcome to Javascript mode."
-endfunction
-" }}}
-
+autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 expandtab
 " }}}
