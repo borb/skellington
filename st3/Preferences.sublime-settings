@@ -9,6 +9,7 @@
 	"ui_big_tabs": true,				// increased tab height
 	"ui_fix_tab_labels": true,			// to fix tab labels if they look not right
 	"ui_wide_scrollbars": true,			// wider scrollbars
+	"ui_font_default": true,			// use Sublime's default UI font
 
 	// packages to block
 	"ignored_packages": ["Vintage"],
