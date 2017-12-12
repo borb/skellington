@@ -51,5 +51,8 @@
 	"ensure_newline_at_eof_on_save": true,
 
 	// clean up whitespace at end of line
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+
+	// make autocomplete work on tab because it's really irritating on enter
+	"auto_complete_commit_on_tab": true
 }
