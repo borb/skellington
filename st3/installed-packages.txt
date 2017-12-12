@@ -3,9 +3,13 @@ ayu
 Babel
 Diffy
 Dockerfile Syntax Highlighting
+GitGutter
 JavaScript Completions
+MarkdownTOC
 Package Control
+Pretty JSON
 SideBarEnhancements
+SublimeCodeIntel
 SublimeLinter
 SublimeLinter-contrib-standard
 SublimeLinter-php
