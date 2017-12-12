@@ -1,0 +1,32 @@
+{
+    "user": {
+        "gutter_theme": "Packages/SublimeLinter/gutter-themes/Blueberry - round/Blueberry - round.gutter-theme",
+        "linters": {
+            "php": {
+                "@disable": false,
+                "args": [],
+                "excludes": [],
+                "cmd": "/usr/local/bin/php"
+            },
+            "phpcs": {
+                "@disable": false,
+                "args": [],
+                "excludes": [],
+                "standard": "PSR2"
+            },
+            "phpmd": {
+                "@disable": false,
+                "args": [],
+                "excludes": [],
+                "rulesets": "cleancode,codesize,controversial,design,naming,unusedcode"
+            },
+            "standard": {
+                "@disable": false,
+                "args": [],
+                "excludes": []
+            }
+        },
+        "mark_style": "fill",
+        "tooltip_theme": "Packages/SublimeLinter/tooltip-themes/Default/Default.tooltip-theme"
+    }
+}
