@@ -122,6 +122,9 @@ Plugin 'sudo.vim'
 " load gitgutter
 Plugin 'airblade/vim-gitgutter'
 
+" ack plugin
+Plugin 'mileszs/ack.vim'
+
 " end of plugin setup
 call vundle#end()
 filetype on
