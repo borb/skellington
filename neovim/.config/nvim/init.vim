@@ -178,6 +178,10 @@ map <leader>] :bnext<CR>
 autocmd BufRead,BufNewFile,BufAdd,BufCreate mutt-* 
 	\setlocal foldmethod=syntax tabstop=4 expandtab shiftwidth=4 textwidth=76
 
+" remap .inc as php files (also set the php options)
+autocmd BufRead,BufNewFile,BufAdd,BufCreate *.inc
+	\setlocal syntax=php tabstop=4 shiftwidth=4 nowrap expandtab
+
 autocmd Filetype php setlocal tabstop=4 shiftwidth=4 nowrap expandtab
 
 autocmd Filetype xml setlocal tabstop=4 shiftwidth=4 nowrap
