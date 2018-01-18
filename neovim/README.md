@@ -14,6 +14,6 @@ Check out vundle from git before bootstrapping:
 
 Then bootstrap the bundle setup:
 
-	vim +PluginInstall
+	nvim +PluginInstall
 
 Restart vim and your environment should be ready.
