@@ -150,9 +150,13 @@ let g:airline_theme='dark'
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
-" keys for next/prev buffers
-map <M-,> :tabprevious<CR>
-map <M-.> :tabnext<CR>
+" keys for next/prev tabs
+map <leader>, :tabprevious<CR>
+map <leader>. :tabnext<CR>
+
+" keys for next/prev buffers in a tab
+map <leader>[ :bprevious<CR>
+map <leader>] :bnext<CR>
 
 " vdebug keys
 "let g:vdebug_keymap['get_context']='<leader>c'
