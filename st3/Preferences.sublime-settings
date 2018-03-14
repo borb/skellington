@@ -41,7 +41,7 @@
 	"show_line_endings": true,
 
 	// typeface and size
-	"font_face": "Roboto Mono Light",
+	"font_face": "SF Mono Light",
 	"font_size": 14,
 
 	// prevent tab scrolling (removes <>\/ icons)
