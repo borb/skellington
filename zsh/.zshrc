@@ -65,6 +65,7 @@ if [ "x$_colourterm" = "xyes" ]; then
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
+	alias pcregrep='pcregrep --color=auto'
 
 	# gcc likes colours too
 	export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
