@@ -6,7 +6,7 @@ You will need git installed to bootstrap the vim startup.
 Put the skeleton files in place:
 
 	mkdir -p ~/.config/nvim/{bundle,doc}
-	cp .config/init.vim ~/.config/nvim/
+	cp .config/nvim/init.vim ~/.config/nvim/
 
 Check out vundle from git before bootstrapping:
 
