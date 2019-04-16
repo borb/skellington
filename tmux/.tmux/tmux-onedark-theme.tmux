@@ -81,7 +81,7 @@ set "@prefix_highlight_bg" "$onedark_green"
 set "@prefix_highlight_copy_mode_attr" "fg=$onedark_black,bg=$onedark_green"
 set "@prefix_highlight_output_prefix" "  "
 
-status_widgets=$(get "@onedark_widgets")
+status_widgets=$(get "@onedark_widgets" "#{pane_width}x#{pane_height}")
 time_format=$(get "@onedark_time_format" "%R")
 date_format=$(get "@onedark_date_format" "%Y%m%d")
 
