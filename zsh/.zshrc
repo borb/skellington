@@ -76,8 +76,9 @@ bindkey -e
 
 # setup command line completion
 zstyle :compinstall filename ~/.zshrc
+[ -d ~/.zsh/completion ] && fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit
-compinit
+compinit -i
 
 # style the completion with a menu highlight
 zstyle ':completion:*' menu select
