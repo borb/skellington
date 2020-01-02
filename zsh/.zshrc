@@ -89,7 +89,7 @@ if [ -r ~/.antigen/antigen/antigen.zsh ]; then
 
 	# set our theme and syntax highlighting
 	[ "x$_colourterm" = "xyes" ] && {
-		antigen theme aphlor/planet-zsh planet
+		antigen theme borb/planet-zsh planet
 		antigen bundle zsh-users/zsh-syntax-highlighting
 	}
 
