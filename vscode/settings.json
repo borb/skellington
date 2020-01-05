@@ -14,4 +14,6 @@
     "terminal.integrated.shellArgs.linux": ["-l"],
     "terminal.integrated.shellArgs.windows": ["~", "-d", "arch"],
     "window.zoomLevel": 0,
+    "workbench.editor.enablePreview": false,
+    "git.autofetch": true
 }
