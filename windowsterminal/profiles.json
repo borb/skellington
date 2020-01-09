@@ -1,0 +1,76 @@
+{
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+
+    "defaultProfile": "{ece9aa19-68f6-5c2f-8d4a-720d0fe69c4a}",
+
+    "profiles":
+    [
+        {
+            "guid": "{ece9aa19-68f6-5c2f-8d4a-720d0fe69c4a}",
+            "hidden": false,
+            "name": "arch linux (wsl)",
+            "commandline": "wsl.exe ~ -d arch",
+            "fontFace": "Cascadia Code PL",
+            "fontSize": 14,
+            "colorScheme": "Monokai borb",
+            "useAcrylic": false,
+            "cursorShape": "filledBox",
+            "cursorColor": "#00ff00",
+            "source": "Windows.Terminal.Wsl",
+            "icon": "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png"
+            // "icon": "\\\\wsl$\\arch\\usr\\share\\pixmaps\\archlinux.png"
+        },
+        {
+            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+            "hidden": false,
+            "name": "Windows PowerShell",
+            "commandline": "powershell.exe",
+            "fontFace": "Cascadia Code PL",
+            "fontSize": 14,
+            "colorScheme": "Monokai borb",
+            "useAcrylic": false,
+            "cursorShape": "filledBox",
+            "cursorColor": "#00ff00"
+        },
+        {
+            "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+            "name": "cmd",
+            "commandline": "cmd.exe",
+            "fontFace": "Cascadia Code PL",
+            "fontSize": 14,
+            "hidden": false
+        },
+        {
+            "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+            "hidden": true,
+            "name": "Azure Cloud Shell",
+            "source": "Windows.Terminal.Azure"
+        }
+    ],
+
+    "schemes": [
+        {
+            "name" : "Monokai borb",
+            "background" : "#000000",
+            "foreground" : "#f8f8f8",
+            "black" : "#1f1f1f",
+            "blue" : "#6699df",
+            "cyan" : "#e69f66",
+            "green" : "#a6e22e",
+            "purple" : "#ae81ff",
+            "red" : "#f92672",
+            "white" : "#f8f8f2",
+            "yellow" : "#e6db74",
+            "brightBlack" : "#75715e",
+            "brightBlue" : "#66d9ef",
+            "brightCyan" : "#e69f66",
+            "brightGreen" : "#a6e22e",
+            "brightPurple" : "#ae81ff",
+            "brightRed" : "#f92672",
+            "brightWhite" : "#f8f8f2",
+            "brightYellow" : "#e6db74"
+        }
+    ],
+
+    "keybindings": []
+}
