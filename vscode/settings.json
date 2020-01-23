@@ -1,8 +1,9 @@
 {
     "cmake.configureOnOpen": true,
     "editor.acceptSuggestionOnEnter": "off",
-    "editor.fontFamily": "'Roboto Mono', monospace",
+    "editor.fontFamily": "'Cascadia Code', 'Roboto Mono', monospace",
     "editor.fontSize": 16,
+    "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
     "eslint.nodePath": "C:/Users/nine/wsl/arch/rootfs/usr/lib/node_modules",
     "files.insertFinalNewline": true,
@@ -13,6 +14,7 @@
     "terminal.integrated.shell.windows": "C:\\Windows\\System32\\wsl.exe",
     "terminal.integrated.shellArgs.linux": ["-l"],
     "terminal.integrated.shellArgs.windows": ["~", "-d", "arch"],
+    "terminal.integrated.fontFamily": "'Cascadia Mono PL', 'Roboto Mono', monospace",
     "window.zoomLevel": 0,
     "workbench.editor.enablePreview": false,
     "git.autofetch": true,
