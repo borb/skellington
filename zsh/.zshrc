@@ -9,6 +9,13 @@ case $- in
 		;;
 esac
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]; then
+	source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # we need the system type in various places
 _system="$(uname -s)"
 
@@ -89,7 +96,8 @@ if [ -r ~/.antigen/antigen/antigen.zsh ]; then
 
 	# set our theme and syntax highlighting
 	[ "x$_colourterm" = "xyes" ] && {
-		antigen theme borb/planet-zsh planet
+		#antigen theme aphlor/planet-zsh planet
+		antigen theme romkatv/powerlevel10k
 		antigen bundle zsh-users/zsh-syntax-highlighting
 	}
 
@@ -112,3 +120,6 @@ fi
 # clean up
 unset _colourterm
 unset _system
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[ -f ~/.p10k.zsh ] && source ~/.p10k.zsh
