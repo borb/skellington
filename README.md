@@ -12,13 +12,17 @@ copy `aptitude/apt.conf.d/99aptitude-colours` to `/etc/apt/apt.conf.d` in order 
 
 see [neovim/README.md](neovim/README.md) for installation instructions.
 
+## newt
+
+darkens the usually white-on-blue used frequently by debian for dialogs in console sessions. copy `debian/etc/newt/palette` to `/etc/newt/palette`.
+
 ## tmux
 
-copy `tmux/.tmux` and its contents, and `tmux/.tmux.conf` to `$HOME` and it should work. some options are incompatible with some installations of tmux; i haven't had time to work out which.
+see [tmux/README.md](tmux/README.md) for installation instructions.
 
-## vscode
+## windows terminal
 
-from a console, run `for i in $(cat extensions.txt); do code --install-extension $i; done`. paste `vscode/settings.json` into your settings file, and `vscode/keybindings.json` into your keybindings file. some paths require alteration to be compatible with remotes. defaults paths are for Windows using a self-built arch linux wsl rootfs.
+copy [windowsterminal/profiles.json](windowsterminal/profiles.json) over the default configuration; this might not be a great idea if you've installed shells (e.g. powershell 7), so consider careful merging instead. you're on your own.
 
 ## zsh
 
