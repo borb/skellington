@@ -1,19 +1,12 @@
 nvim
 ----
 
-You will need git installed to bootstrap the vim startup.
+This was a personally created configuration, but now just uses SpaceVim.
 
-Put the skeleton files in place:
+Install with
 
-	mkdir -p ~/.config/nvim/{bundle,doc}
-	cp .config/nvim/init.vim ~/.config/nvim/
+```shell
+% curl -sLf https://spacevim.org/install.sh | bash
+```
 
-Check out vundle from git before bootstrapping:
-
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
-
-Then bootstrap the bundle setup:
-
-	nvim +PluginInstall
-
-Restart vim and your environment should be ready.
+Then copy over `.SpaceVim.d` to `$HOME`.
