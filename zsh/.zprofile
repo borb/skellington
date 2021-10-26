@@ -31,6 +31,12 @@ if [ -d ~/bin ]; then
 	unset _homebin
 fi
 
+# check and add homebrew paths to the path
+if [ -d /opt/homebrew -a ${path[(i)/opt/homebrew/bin]} -gt ${#path} ]; then
+	# working on the assumption that if /opt/homebrew/bin isn't in the path, then /opt/homebrew/sbin isn't either
+	path=(/opt/homebrew/bin /opt/homebrew/sbin $path)
+fi
+
 # if /usr/local/{bin,sbin} is in the path, move it to the front
 if [ ${path[(i)/usr/local/sbin]} -le ${#path} ]; then
 	_idx=${path[(i)/usr/local/sbin]}
