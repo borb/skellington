@@ -1,114 +1,161 @@
-# ~/.zshrc - configuration for z shell
+# Start configuration added by Zim install {{{
+#
+# User configuration sourced by interactive shells
+#
 
-# are we running interactively?
-case $- in
-	*i*)
-		;;
-	*)
-		return
-		;;
-esac
+# -----------------
+# Zsh configuration
+# -----------------
 
-# we need the system type in various places
-_system="$(uname -s)"
+#
+# History
+#
 
-# Setup history; log to ~/.histfile, 1000 lines in memory and on disk
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+# Remove older command from the history if a duplicate is to be added.
+setopt HIST_IGNORE_ALL_DUPS
 
-# Enable color support in supporting tools
-_colourterm="no"
+#
+# Input/output
+#
 
-# Determine how to check for colours. Linux & macOS use ncurses to provide tput,
-# which differs from the BSD tput
-case "$_system" in
-	FreeBSD|NetBSD|OpenBSD)
-		_console_colours="$(tput Co)"
-		[ "x$_console_colours" = "x" ] && _console_colours="0"
-		;;
-	*)
-		_console_colours="$(tput colors)"
-		;;
-esac
-
-# Check how many colours tput said we can handle
-if [ $_console_colours -gt 2 ]; then
-	_colourterm="yes"
-fi
-unset _console_colours
-
-# Force colour?
-#_colourterm="yes"
-
-if [ "x$_colourterm" = "xyes" ]; then
-	case "$_system" in
-		Darwin|FreeBSD)
-			# darwin and freebsd use the same core utilities set. these hinge on the CLICOLOR env
-			# colour prompts are also supported
-			export CLICOLOR=yes
-
-			# improve ls' colour readability on dark terminals with these setting
-			export LSCOLORS="ExFxCxDxBxEgEdAbAgAcAd"
-			;;
-		Linux)
-			# most linux distros use coreutils, which come with a 'dircolors' command. this sets up
-			# LS_COLORS colour prompts supported
-			if [ -x /usr/bin/dircolors ]; then
-				test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-				alias ls="ls --color=auto"
-			fi
-			;;
-	esac
-
-	# let grep decide when to colourise and when not to
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto'
-	alias egrep='egrep --color=auto'
-	alias pcregrep='pcregrep --color=auto'
-
-	# gcc likes colours too
-	export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-fi
-
-# use emacs line editing
+# Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -e
 
-# setup command line completion
-zstyle :compinstall filename ~/.zshrc
-[ -d ~/.zsh/completion ] && fpath=(~/.zsh/completion $fpath)
-autoload -Uz compinit
-compinit -i
+# Prompt for spelling correction of commands.
+#setopt CORRECT
 
-# style the completion with a menu highlight
-zstyle ':completion:*' menu select
+# Customize spelling correction prompt.
+#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 
-# load antigen and bundles
-if [ -r ~/.antigen/antigen/antigen.zsh ]; then
-	source ~/.antigen/antigen/antigen.zsh
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]}
 
-	# set our theme and syntax highlighting
-	[ "x$_colourterm" = "xyes" ] && {
-		antigen theme borb/planet-zsh planet
-		antigen bundle zsh-users/zsh-syntax-highlighting
-	}
+# -----------------
+# Zim configuration
+# -----------------
 
-	# more completion
-	antigen bundle zsh-users/zsh-completions src
+# Use degit instead of git as the default tool to install and update modules.
+#zstyle ':zim:zmodule' use 'degit'
 
-	# finish with antigen
-	antigen apply
+# --------------------
+# Module configuration
+# --------------------
+
+#
+# git
+#
+
+# Set a custom prefix for the generated aliases. The default prefix is 'G'.
+#zstyle ':zim:git' aliases-prefix 'g'
+
+#
+# input
+#
+
+# Append `../` to your input for each `.` you type after an initial `..`
+#zstyle ':zim:input' double-dot-expand yes
+
+#
+# termtitle
+#
+
+# Set a custom terminal title format using prompt expansion escape sequences.
+# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
+# If none is provided, the default '%n@%m: %~' is used.
+#zstyle ':zim:termtitle' format '%1~'
+
+#
+# zsh-autosuggestions
+#
+
+# Disable automatic widget re-binding on each precmd. This can be set when
+# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
+# Customize the style that the suggestions are shown with.
+# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+#
+# zsh-syntax-highlighting
+#
+
+# Set what highlighters will be used.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# Customize the main highlighter styles.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
+#typeset -A ZSH_HIGHLIGHT_STYLES
+#ZSH_HIGHLIGHT_STYLES[comment]='fg=242'
+
+# ------------------
+# Initialize modules
+# ------------------
+
+ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  if (( ${+commands[curl]} )); then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
+fi
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+
+# ------------------------------
+# Post-init module configuration
+# ------------------------------
+
+#
+# zsh-history-substring-search
+#
+
+zmodload -F zsh/terminfo +p:terminfo
+# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
+for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
+for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
+for key ('k') bindkey -M vicmd ${key} history-substring-search-up
+for key ('j') bindkey -M vicmd ${key} history-substring-search-down
+unset key
+# }}} End configuration added by Zim install
+
+# setup gpg tty so that non-interactive programs can still use pinentry (e.g. mutt)
+export GPG_TTY="$(tty)"
+
+# aliases
+alias mosh6="mosh --family=inet6"
+
+# setup 'keychain'
+if command -v keychain >/dev/null; then
+  eval "$(keychain --eval --agents ssh --quiet)"
 fi
 
-# lastly; load our customisations (if present)
-if [ -r ~/.zshrc.local ]; then
-	source ~/.zshrc.local
+# less
+if command -v less >/dev/null; then
+  export LESS="-r"
 fi
 
-if [ -r ~/bin/shellfuncs.sh ]; then
-	source ~/bin/shellfuncs.sh
+# node version manager
+export NVM_DIR="$HOME/.nvm"
+test -s "$NVM_DIR/nvm.sh" && source "$NVM_DIR/nvm.sh"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+if test -x "$PYENV_ROOT/bin/pyenv"; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
 fi
 
-# clean up
-unset _colourterm
-unset _system
+# direnv
+if command -v direnv >/dev/null; then
+  eval "$(direnv hook zsh)"
+fi
