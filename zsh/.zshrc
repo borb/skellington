@@ -133,10 +133,11 @@ export GPG_TTY="$(tty)"
 
 # aliases
 alias mosh6="mosh --family=inet6"
+alias ip="ip --color=auto"
 
 # setup 'keychain'
 if command -v keychain >/dev/null; then
-  eval "$(keychain --eval --agents ssh --quiet)"
+  eval "$(keychain --eval)"
 fi
 
 # less
