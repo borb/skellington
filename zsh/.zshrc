@@ -137,7 +137,7 @@ alias ip="ip --color=auto"
 
 # setup 'keychain'
 if command -v keychain >/dev/null; then
-  eval "$(keychain --eval)"
+  eval "$(keychain --eval --quiet)"
 fi
 
 # less
