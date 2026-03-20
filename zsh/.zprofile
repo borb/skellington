@@ -50,3 +50,7 @@ if [ ${path[(i)/usr/local/bin]} -le ${#path} ]; then
   path=(/usr/local/bin $path)
   unset _idx
 fi
+
+if [ -r ~/.zprofile.local ]; then
+  source ~/.zprofile.local
+fi
